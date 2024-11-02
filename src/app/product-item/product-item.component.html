@@ -1,0 +1,16 @@
+<div class="product-card">
+  <img
+    [src]="product.image.thumbnail"
+    [srcset]="
+      product.image.mobile + ' 480w, ' +
+      product.image.tablet + ' 768w, ' +
+      product.image.desktop + ' 1024w'
+    "
+    sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 1024px"
+    alt="{{ product.name }}"
+  />
+  <h3>{{ product.name }}</h3>
+  <p>{{ product.category }}</p>
+  <div class="price">${{ product.price | number: '1.2-2' }}</div>
+  <button (click)="addToCart()">Add to Cart</button>
+</div>

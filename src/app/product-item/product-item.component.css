@@ -1,0 +1,12 @@
+.product-card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  text-align: center;
+}
+.product-card img {
+  max-width: 100%;
+}
+.product-card .price {
+  font-weight: bold;
+  margin: 10px 0;
+}

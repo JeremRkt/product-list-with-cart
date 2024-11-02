@@ -1,0 +1,14 @@
+<div class="cart">
+  <h2>Your Cart ({{ cartItems.length }})</h2>
+  <div *ngFor="let item of cartItems">
+    <div class="cart-item">
+      <p>{{ item.name }}</p>
+      <div class="cart-controls">
+        <span>{{ item.quantity }} x ${{ item.price.toFixed(2) }}</span>
+        <button (click)="removeItem(item.productId)">Remove</button>
+      </div>
+    </div>
+  </div>
+  <p class="total">Order Total: <strong>${{ getTotalPrice().toFixed(2) }}</strong></p>
+  <button (click)="confirmOrder()" class="confirm-order">Confirm Order</button>
+</div>
