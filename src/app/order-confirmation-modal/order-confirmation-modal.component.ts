@@ -14,7 +14,6 @@ export class OrderConfirmationModalComponent {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    // Retrieve the current cart items and total price when the modal is visible
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
       this.totalPrice = this.cartService.getTotalPrice();
@@ -26,7 +25,7 @@ export class OrderConfirmationModalComponent {
   }
 
   startNewOrder() {
-    this.cartService.clearCart(); // Clear cart items
-    this.closeModal(); // Close the modal
+    this.cartService.clearCart();
+    this.closeModal();
   }
 }
