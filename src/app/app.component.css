@@ -1,0 +1,23 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+.product-list {
+  flex: 3;
+}
+
+.cart-summary {
+  flex: 1;
+}
