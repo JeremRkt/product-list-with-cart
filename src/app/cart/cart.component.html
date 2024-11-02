@@ -1,14 +1,23 @@
-<div class="cart">
+<div class="cart" *ngIf="cartItems.length > 0; else emptyCart">
   <h2>Your Cart ({{ cartItems.length }})</h2>
-  <div *ngFor="let item of cartItems">
-    <div class="cart-item">
-      <p>{{ item.name }}</p>
-      <div class="cart-controls">
-        <span>{{ item.quantity }} x ${{ item.price.toFixed(2) }}</span>
-        <button (click)="removeItem(item.productId)">Remove</button>
-      </div>
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <p class="item-name">{{ item.name }}</p>
+    <div class="item-controls">
+      <span class="quantity">{{ item.quantity }} x ${{ item.price.toFixed(2) }}</span>
+      <button (click)="removeItem(item.productId)" class="remove-button">🗑️</button>
     </div>
   </div>
   <p class="total">Order Total: <strong>${{ getTotalPrice().toFixed(2) }}</strong></p>
   <button (click)="confirmOrder()" class="confirm-order">Confirm Order</button>
 </div>
+
+<!-- Include Order Confirmation Modal -->
+<app-order-confirmation-modal [isVisible]="showModal"></app-order-confirmation-modal>
+
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <h2>Your Cart (0)</h2>
+    <img src="assets/empty-cart-image.jpg" alt="Empty cart" class="empty-cart-image" />
+    <p>Your added items will appear here</p>
+  </div>
+</ng-template>

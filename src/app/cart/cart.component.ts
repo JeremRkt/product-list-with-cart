@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/product-service.service';
-import { Product } from '../models/product.model';
+import {CartItem, CartService} from "../services/cart.service";
 
 @Component({
   selector: 'app-cart',
@@ -8,19 +7,26 @@ import { Product } from '../models/product.model';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartItems: Product[] = [];
-  total: number = 0;
+  cartItems: CartItem[] = [];
+  showModal: boolean = false;
 
-  constructor(private productService: ProductService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.productService.getCartItems().subscribe((item) => {
-      this.cartItems = item;
-      this.calculateTotal();
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
     });
   }
 
-  calculateTotal() {
-    this.total = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+  removeItem(productId: number): void {
+    this.cartService.removeItem(productId);
+  }
+
+  getTotalPrice(): number {
+    return this.cartService.getTotalPrice();
+  }
+
+  confirmOrder(): void {
+    this.showModal = true; // Open the modal when confirming the order
   }
 }

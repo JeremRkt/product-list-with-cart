@@ -2,10 +2,13 @@
   max-width: 1200px;
   margin: auto;
   padding: 20px;
+  font-family: 'Arial', sans-serif;
 }
 
 h1 {
   font-size: 2em;
+  font-weight: bold;
+  color: #333;
   margin-bottom: 20px;
 }
 
@@ -20,4 +23,10 @@ h1 {
 
 .cart-summary {
   flex: 1;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
 }

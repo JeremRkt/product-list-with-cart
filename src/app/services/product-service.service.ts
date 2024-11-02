@@ -16,10 +16,6 @@ export class ProductService {
     return this.http.get<Product[]>(this.productsUrl);
   }
 
-  getCartItems(): Observable<Product[]> {
-    return this.cartItems.asObservable();
-  }
-
   addToCart(product: Product) {
     const currentItems = this.cartItems.value;
     this.cartItems.next([...currentItems, product]);

@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { CartComponent } from './cart/cart.component';
+import { OrderConfirmationModalComponent } from './order-confirmation-modal/order-confirmation-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductItemComponent,
-    CartComponent
+    CartComponent,
+    OrderConfirmationModalComponent
   ],
   imports: [
     BrowserModule,
